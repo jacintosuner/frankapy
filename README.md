@@ -20,9 +20,8 @@ In order to setup frankarm connection:
 
 Follow installation steps for ROS1: https://robostack.github.io/GettingStarted.html#__tabbed_1_1
 What worked for us:
-```
+``` bash
 mamba create -n ros_noetic python=3.8 ros-noetic-ros-base ros-noetic-franka-gripper -c robostack -c conda-forge
-mamba deactivate ros_noetic
 ```
 
 Install catkin tools: `sudo pip3 install -U catkin_tools`
