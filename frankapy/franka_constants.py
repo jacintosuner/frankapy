@@ -167,6 +167,8 @@ class FrankaConstants:
         # sides
         [0.15, 0.46, 0.5, 0, 0, 0, 1.2, 0.01, 1.1],
         [0.15, -0.46, 0.5, 0, 0, 0, 1.2, 0.01, 1.1],
+        # [-0.53683451, -0.20658431, -0.05209596, -2.30181669, -0.05812048,  2.10271676,  0.23187559],
+        # [0.15, -0.46, 0.5, 0, 0, 0, 1.2, 0.01, 1.1],
         # back
         [-0.41, 0, 0.5, 0, 0, 0, 0.01, 1, 1.1],
         # front
@@ -180,5 +182,5 @@ class FrankaConstants:
     DEFAULT_SENSOR_PUBLISHER_TOPIC = 'franka_ros_interface/sensor'
     DYNAMIC_SKILL_WAIT_TIME = 0.3
 
-    DEFAULT_HFPC_FORCE_GAIN = [0.1] * 6
+    DEFAULT_HFPC_FORCE_GAIN = [0.01] * 6
     DEFAULT_HFPC_S = [1, 1, 1, 1, 1, 1]

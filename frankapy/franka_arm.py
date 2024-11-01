@@ -306,7 +306,7 @@ class FrankaArm:
     def goto_pose(self,
                   tool_pose,
                   duration=3,
-                  use_impedance=True,
+                  use_impedance=False,
                   dynamic=False,
                   buffer_time=FC.DEFAULT_TERM_BUFFER_TIME,
                   force_thresholds=None,
@@ -315,7 +315,7 @@ class FrankaArm:
                   joint_impedances=None,
                   block=True,
                   ignore_errors=True,
-                  ignore_virtual_walls=False,
+                  ignore_virtual_walls=True,
                   skill_desc='GoToPose'):
         """
         Commands Arm to the given pose via min jerk interpolation
@@ -433,7 +433,7 @@ class FrankaArm:
                         joint_impedances=None,
                         block=True,
                         ignore_errors=True,
-                        ignore_virtual_walls=False,
+                        ignore_virtual_walls=True,
                         skill_desc='GoToPoseDelta'):
         """
         Commands Arm to the given delta pose via min jerk interpolation
@@ -565,7 +565,7 @@ class FrankaArm:
                     d_gains=None,
                     block=True,
                     ignore_errors=True,
-                    ignore_virtual_walls=False,
+                    ignore_virtual_walls=True,
                     skill_desc='GoToJoints'):
         """
         Commands Arm to the given joint configuration
@@ -651,7 +651,9 @@ class FrankaArm:
 
         if not self.is_joints_reachable(joints):
             raise ValueError('Joints not reachable!')
+        # if not ignore_virtual_walls and self.is_joints_in_collision_with_boxes(joints):
         if not ignore_virtual_walls and self.is_joints_in_collision_with_boxes(joints):
+            print(ignore_virtual_walls, self.is_joints_in_collision_with_boxes(joints))
             raise ValueError('Target joints in collision with virtual walls!')
 
         skill.add_initial_sensor_values(FC.EMPTY_SENSOR_VALUES)
@@ -1178,7 +1180,7 @@ class FrankaArm:
                      force=0.0,
                      epsilon_inner=0.08,
                      epsilon_outer=0.08, 
-                     block=True, 
+                     block=False, 
                      ignore_errors=True, 
                      skill_desc='GoToGripper'):
         """
@@ -1270,7 +1272,7 @@ class FrankaArm:
                                 d_gains=None,
                                 block=True,
                                 ignore_errors=True,
-                                ignore_virtual_walls=False,
+                                ignore_virtual_walls=True,
                                 skill_desc='SelectiveGuidance'):
         """
         Commands the Arm to stay in its current position with selective impedances
@@ -1477,7 +1479,7 @@ class FrankaArm:
                   interpolate=False,
                   use_cartesian_gains=True,
                   ignore_errors=True,
-                  ignore_virtual_walls=False,
+                  ignore_virtual_walls=True,
                   skill_desc=''):
         """
         Commands Arm to run dynamic hybrid force position control
