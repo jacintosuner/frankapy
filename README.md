@@ -14,7 +14,6 @@ To join the Discord community, click the link [here](https://discord.gg/r6r7dttM
 
 ## (Add up for RPAD lab) Frankarm / Frankapy connection and installation
 In order to setup frankarm connection:
-* Connect the ethernet cable to your desk, and change IPv4 Method to "Shared to other computers".
 * Follow the instructions from frankapy's repo section "Configuring the network with the Control PC", including the IP Address setup for communication through a router (for some reason, setting both network configurations to Automatic doesn't work).
 
 
