@@ -12,9 +12,8 @@ To join the Discord community, click the link [here](https://discord.gg/r6r7dttM
 * ROS Melodic / Noetic
 * [Protocol Buffers](https://github.com/protocolbuffers/protobuf)
 
-## (Add up for our lab) Frankarm / Frankapy connection and installation
+## (Add up for RPAD lab) Frankarm / Frankapy connection and installation
 In order to setup frankarm connection:
-* Connect the ethernet cable to your desk, and change IPv4 Method to "Shared to other computers".
 * Follow the instructions from frankapy's repo section "Configuring the network with the Control PC", including the IP Address setup for communication through a router (for some reason, setting both network configurations to Automatic doesn't work).
 
 
@@ -24,7 +23,9 @@ What worked for us:
 mamba create -n ros_noetic python=3.8 ros-noetic-ros-base ros-noetic-franka-gripper -c robostack -c conda-forge
 ```
 
-Install catkin tools: `sudo pip3 install -U catkin_tools`
+Make sure to execute `git submodule update --init --recursive` in case you're working with this repository as a submodule. When performing catkin build in later steps (or ./bash_scripts/make_catkin.sh), make sure 2 packages are installed and not just 1.
+
+(Troubleshooting) Install catkin tools: `sudo pip3 install -U catkin_tools`
 
 
 ## Computer Setup Instructions
