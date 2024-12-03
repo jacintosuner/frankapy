@@ -12,6 +12,13 @@ if __name__ == '__main__':
     print('Starting robot')
     fa = FrankaArm()
 
+    if args.close_grippers:
+        print('Closing Grippers')
+        fa.close_gripper()
+    else:
+        print('Opening Grippers')
+        fa.open_gripper()
+
     if args.move_away_z:
         current_pose = fa.get_pose()
         transformation_matrix = np.array(fa._state_client._get_current_robot_state().robot_state.O_T_EE).reshape(4, 4).transpose()
@@ -25,10 +32,3 @@ if __name__ == '__main__':
     else:
         print('Reset with joints')
         fa.reset_joints()
-    
-    if args.close_grippers:
-        print('Closing Grippers')
-        fa.close_gripper()
-    else:
-        print('Opening Grippers')
-        fa.open_gripper()
