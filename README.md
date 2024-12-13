@@ -23,6 +23,21 @@ What worked for us:
 mamba create -n ros_noetic python=3.8 ros-noetic-ros-base ros-noetic-franka-gripper -c robostack -c conda-forge
 ```
 
+Extra installations for using rviz (visualize the robot and its configurations, frames, joints,...)
+```bash
+conda install robostack::ros-noetic-franka-description
+conda install robostack::ros-noetic-rviz 
+conda install robostack::ros-noetic-xacro
+```
+
+Example usage of rviz (after all frankapy setup):
+(make sure to change the paths to the xacro files)
+```bash
+source ./catkin_ws/devel/setup.bash
+cd launch
+roslaunch franka_rviz_hack.launch
+```
+
 Make sure to execute `git submodule update --init --recursive` in case you're working with this repository as a submodule. When performing catkin build in later steps (or ./bash_scripts/make_catkin.sh), make sure 2 packages are installed and not just 1.
 
 (Troubleshooting) Install catkin tools: `sudo pip3 install -U catkin_tools`
