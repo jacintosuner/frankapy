@@ -1175,7 +1175,7 @@ class FrankaArm:
 
     def goto_gripper(self, 
                      width, 
-                     grasp=False, 
+                     grasp=True, 
                      speed=0.04, 
                      force=0.0,
                      epsilon_inner=0.08,
@@ -1192,7 +1192,7 @@ class FrankaArm:
             width : :obj:`float`
                 Desired width of the gripper in the unit of meters.
             grasp : :obj:`bool`
-                Flag that signals whether to grasp.
+                Flag that signals whether to take grasp commands real time.
             speed : :obj:`float`
                 Gripper operation speed in meters per sec.
             force : :obj:`float`
