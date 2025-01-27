@@ -376,6 +376,7 @@ class FrankaOSCController():
                 use_rot = False,
                 target_rot = None,
                 duration = 3,
+                grasp = False,
                 num_steps=40,
                 num_additional_steps=20):
         
